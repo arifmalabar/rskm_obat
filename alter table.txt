@@ -1,0 +1,5 @@
+ALTER TABLE resep ADD INDEX (pasien_id);
+ALTER TABLE resep ADD INDEX (obat_id);
+ALTER TABLE resep ADD INDEX (tanggal_input);
+ALTER TABLE pasien ADD INDEX (nama_pasien);
+ALTER TABLE pasien ADD INDEX (asal_poli);

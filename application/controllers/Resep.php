@@ -54,11 +54,11 @@ class Resep extends CI_Controller {
     }
     public function tambahPasien()
     {
-
+        
     }
     public function tambahObat()
     {
-        
+
     }
 
 }

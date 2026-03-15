@@ -63,6 +63,7 @@
                 <td><?= $r->jumlah ?></td>
                 <td>Rp. <?= number_format($r->harga, 0) ?></td>
                 <td>Rp. <?= number_format($subtotal, 0) ?></td>
+                <td><a href="<?= base_url(); ?>resep/hapusTagihan/<?= $r->id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
         <?php endforeach ?>
         <tr>

@@ -7,40 +7,42 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Resep</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Pasien</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url(); ?>resep/tambahTagihan" id="tambahtagihan" method="post">
+        <form action="<?= base_url(); ?>resep/tambahPasien" id="tambahPasien" method="post">
             <div class="form-group">
-                <label for="">Obat</label>
-                <select class="form-control select2" name="id_obat">
-                    <option value="">Pilih obat</option>
-                    <?php 
-                    foreach ($obat as $key) { ?>
-                        <option value="<?= $key->id; ?>"><?= $key->nama_obat; ?></option>
-                    <?php }?>
-                </select>
+                <label for="">NORM</label>
+                <input type="number" name="no_rm" class="form-control" placeholder="Masukan NORM pasien" id="">
             </div>
             <div class="form-group">
-                <label for="">Jumlah</label>
-                <input type="number" name="jumlah" class="form-control" id="">
+                <label for="">Nama</label>
+                <input type="text" name="nama_pasien" class="form-control" placeholder="Masukan Nama Pasien" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Asal Poli</label>
+                <input type="text" name="asal_poli" class="form-control" placeholder="Masukan Asal Poli Pasien" id="">
+            </div>
+            <div class="form-group">
+                <label for="">Tanggal</label>
+                <input type="date" name="tanggal" class="form-control" placeholder="Masukan Asal Poli Pasien" id="">
             </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="tambahtagihan" class="btn btn-primary">Simpan</button>
+        <button type="submit" form="tambahPasien" class="btn btn-primary">Simpan</button>
       </div>
     </div>
   </div>
 </div>
 <!-- Tabel -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalObat">
+<a type="button" class="btn btn-success" href="obat">
 Tambah Obat
-</button>
+</a>
 <!-- Modal -->
 <div class="modal fade" id="modalObat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

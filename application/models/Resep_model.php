@@ -45,7 +45,7 @@ class Resep_model extends CI_Model {
                         ) tanggal_input,
                         pasien.id pasien_id
                     FROM `pasien`  
-                    ORDER BY `pasien`.`id`  ASC")
+                    ORDER BY jml_penggunaan_obat  DESC")
             ->result();
     }
 
@@ -63,5 +63,13 @@ class Resep_model extends CI_Model {
             JOIN obat ON resep.obat_id = obat.id
             GROUP BY MONTH(tanggal_input)");
         return $query->result();
+    }
+    public function insert($data)
+    {
+        return $this->db->insert("resep", $data);   
+    }
+    public function delete($id)
+    {
+        return $this->db->where("id", $id)->delete("resep");
     }
 }

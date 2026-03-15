@@ -1,7 +1,7 @@
 </div> <!-- Penutup container -->
 
 <footer class="text-center mt-5 mb-3">
-    <span class="badge badge-success">&copy; 2025 - Instalasi Tangga</span>
+    <span class="badge badge-success">&copy; 2025 - IT RSKM</span>
 </footer>
 
 <!-- DataTables Responsive CSS -->

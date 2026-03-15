@@ -1,8 +1,10 @@
 <?php 
 class Resep extends CI_Controller {
+    private $id_pasien;
     public function __construct() {
         parent::__construct();
         $this->load->model(['Pasien_model', 'Obat_model', 'Resep_model']);
+        $this->id_pasien = $this->session->userdata("id_pasien");
     }
 
     public function index() {
@@ -43,18 +45,24 @@ class Resep extends CI_Controller {
     }
     public function tambahTagihan()
     {
-        $id_pasien = $this->session->userdata("id_pasien");
         $data = [
-            "pasien_id" => $id_pasien,
+            "pasien_id" => $this->id_pasien,
             "obat_id" => $this->input->post("id_obat"),
             "jumlah" => $this->input->post("jumlah")
         ];
-        $this->Obat_model->insert($data);
-        redirect("resep/tagihan/".$id_pasien);
+        $this->Resep_model->insert($data);
+        redirect("resep/tagihan/".$this->id_pasien);
+    }
+    public function hapusTagihan($id)
+    {
+        $this->Resep_model->delete($id);
+        redirect("resep/tagihan/".$this->id_pasien);
     }
     public function tambahPasien()
     {
-        
+        $data = $this->input->post();
+        $this->Pasien_model->insertData($data);
+        redirect("/");
     }
     public function tambahObat()
     {

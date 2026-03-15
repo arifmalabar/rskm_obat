@@ -9,6 +9,14 @@ class Obat_model extends CI_Model {
     }
     public function insert($data)
     {
-        return $this->db->insert("resep", $data);   
+        return $this->db->insert("obat", $data);   
+    }
+    public function update($data, $id)
+    {
+        return $this->db->where("id", $id)->update("obat", $data);
+    }
+    public function delete($id)
+    {
+        return $this->db->where("id", $id)->delete("obat");
     }
 }

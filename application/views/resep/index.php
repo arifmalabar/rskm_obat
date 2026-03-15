@@ -1,3 +1,81 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambahPasien">
+  Tambah Pasien
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalTambahPasien" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Resep</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>resep/tambahTagihan" id="tambahtagihan" method="post">
+            <div class="form-group">
+                <label for="">Obat</label>
+                <select class="form-control select2" name="id_obat">
+                    <option value="">Pilih obat</option>
+                    <?php 
+                    foreach ($obat as $key) { ?>
+                        <option value="<?= $key->id; ?>"><?= $key->nama_obat; ?></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Jumlah</label>
+                <input type="number" name="jumlah" class="form-control" id="">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="tambahtagihan" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tabel -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalObat">
+Tambah Obat
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalObat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Resep</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>resep/tambahTagihan" id="tambahtagihan" method="post">
+            <div class="form-group">
+                <label for="">Obat</label>
+                <select class="form-control select2" name="id_obat">
+                    <option value="">Pilih obat</option>
+                    <?php 
+                    foreach ($obat as $key) { ?>
+                        <option value="<?= $key->id; ?>"><?= $key->nama_obat; ?></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Jumlah</label>
+                <input type="number" name="jumlah" class="form-control" id="">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="tambahtagihan" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Tabel -->
 <table id="tabelResep" class="table table-bordered table-hover table-sm table-striped">
     <thead class="thead-light">

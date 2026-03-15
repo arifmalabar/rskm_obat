@@ -2,7 +2,7 @@
 
 class Resep_model extends CI_Model {
     public function get_filtered($keyword = '', $poli = '', $tanggal = '') {
-        $this->db->select('
+        /*$this->db->select('
             pasien.id as pasien_id,
             no_rm,
             no_sep,
@@ -22,7 +22,31 @@ class Resep_model extends CI_Model {
 
         $this->db->group_by('resep.pasien_id');
         $this->db->order_by("jml_penggunaan_obat", "DESC");
-        return $this->db->get()->result();
+        return $this->db->get()->result();*/
+        return $this->db->query("SELECT 
+                        *,
+                        (
+                            SELECT 
+                                SUM(resep.jumlah * (SELECT obat.harga FROM obat WHERE obat.id = resep.obat_id)) as total 
+                            FROM resep WHERE resep.pasien_id = pasien.id
+                        ) total_harga,
+                        (
+                            SELECT 
+                                COUNT(resep.pasien_id) 
+                            FROM resep
+                            WHERE resep.pasien_id = pasien.id
+                        ) jml_penggunaan_obat,
+                        (
+                            SELECT 
+                                resep.tanggal_input tanggal_input
+                            FROM resep
+                            WHERE resep.pasien_id = pasien.id
+                            GROUP by resep.pasien_id
+                        ) tanggal_input,
+                        pasien.id pasien_id
+                    FROM `pasien`  
+                    ORDER BY `pasien`.`id`  ASC")
+            ->result();
     }
 
     public function get_by_pasien($id_pasien) {

@@ -7,4 +7,8 @@ class Obat_model extends CI_Model {
     public function get_by_id($id) {
         return $this->db->get_where('obat', ['id' => $id])->row();
     }
+    public function insert($data)
+    {
+        return $this->db->insert("resep", $data);   
+    }
 }

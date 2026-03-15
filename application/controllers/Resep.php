@@ -33,12 +33,32 @@ class Resep extends CI_Controller {
     }
 
     public function tagihan($id) {
+        $this->session->set_userdata(["id_pasien" => $id]);
         $data['pasien'] = $this->Pasien_model->get_by_id($id);
         $data['resep'] = $this->Resep_model->get_by_pasien($id);
+        $data['obat'] = $this->Obat_model->get_all();
         $this->load->view('templates/header', ['title' => 'Detail Tagihan Pasien']);
         $this->load->view('resep/tagihan', $data);
         $this->load->view('templates/footer');
     }
+    public function tambahTagihan()
+    {
+        $id_pasien = $this->session->userdata("id_pasien");
+        $data = [
+            "pasien_id" => $id_pasien,
+            "obat_id" => $this->input->post("id_obat"),
+            "jumlah" => $this->input->post("jumlah")
+        ];
+        $this->Obat_model->insert($data);
+        redirect("resep/tagihan/".$id_pasien);
+    }
+    public function tambahPasien()
+    {
 
+    }
+    public function tambahObat()
+    {
+        
+    }
 
 }

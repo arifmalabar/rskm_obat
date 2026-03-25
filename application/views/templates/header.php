@@ -69,7 +69,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">
-            <i class="fas fa-clipboard-list"></i> Resep Desember 2025
+            <i class="fas fa-clipboard-list"></i> Billing Resep RSKM
         </a>
     </nav>
 
